@@ -1,4 +1,4 @@
-package storm.contrib.sqs;
+package storm.sqs;
 
 import java.io.IOException;
 import java.util.List;
