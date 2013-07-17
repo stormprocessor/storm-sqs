@@ -7,9 +7,9 @@
     <version>0.1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>storm-contrib-sqs</artifactId>
+  <artifactId>storm-sqs</artifactId>
   <packaging>jar</packaging>
-  <name>storm-contrib-sqs</name>
+  <name>storm-sqs</name>
   <description>Components for Storm integration with Amazon SQS</description>
 
   <dependencies>
