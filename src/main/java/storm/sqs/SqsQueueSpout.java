@@ -52,12 +52,12 @@ import backtype.storm.utils.Utils;
  *
  */
 public abstract class SqsQueueSpout extends BaseRichSpout {
-	private SpoutOutputCollector collector;
-	private AmazonSQSAsync sqs;
+	protected SpoutOutputCollector collector;
+	protected AmazonSQSAsync sqs;
+	protected LinkedBlockingQueue<Message> queue;
 	
 	private final String queueUrl;
 	private final boolean reliable;
-	private LinkedBlockingQueue<Message> queue;
 	
 	private int sleepTime;
 
@@ -76,7 +76,7 @@ public abstract class SqsQueueSpout extends BaseRichSpout {
 			@SuppressWarnings("rawtypes") Map conf, TopologyContext context, SpoutOutputCollector collector) {
 	
 		this.collector = collector;
-		queue = new LinkedBlockingQueue<Message>();
+		queue = new LinkedBlockingQueue<>();
 		try {
 			sqs = new AmazonSQSAsyncClient(new PropertiesCredentials(SqsQueueSpout.class.getResourceAsStream("/AwsCredentials.properties")));
 		} catch (IOException ioe) {
